@@ -2,30 +2,85 @@
 
 let initialDeposit;
 while(true){
-    var input = prompt("What is your initial deposit?");
+    let input = prompt("What is your initial deposit?");
     
-    if(!input || input >= 1000){
-        initialDeposit = Number(input);
+    if(false || input >= 1000){
+        initialDeposit = Number(input) ;
         break;
     }else{
         alert("Invalid input data");
     }
 }
-console.log(typeof initialDeposit)
-// let numberOfYears;
-// while(true){
-//     var input = prompt('For how long do you invest your money?(Years)');
-//     if(Number.isInteger(input) && input >= 1){
-//         numberOfYears = input;
-//         break;
-//     }else{
-//         alert("Invalid input data");
-//     }
-// }
-// let annualRate = prompt('Please, provide annual rate')
+// console.log(initialDeposit, "initialDeposit")
+// console.log(typeof initialDeposit)
+let numberOfYears;
+while(true){
+    let input = prompt('For how many years do you invest your money?');
+    if(false || !(/\D/.test(input)) && input >= 1){
+        numberOfYears = Number(input);
+        break;
+    }else{
+        alert("Invalid input data");
+    }
+}
+// console.log(numberOfYears, "numberOfYears")
+// console.log(typeof numberOfYears)
+let annualRate; 
+while(true){
+    let input = prompt('Please, provide annual rate');
+    
+    if(false || input > 0 && input <= 100){
+        annualRate = Number(input) ;
+        break;
+    }else{
+        alert("Invalid input data");
+    }
+}
+// console.log(annualRate, "annualRate")
+// console.log(typeof annualRate)
 
 
-//   Приклад застосованої валідації
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   Приклад застосованої валідації - валідація на конкретний текс
 // while(true){
 //     var sport = prompt("What sport do you play? (Baseball, Football, Soccer, or Track)").toLowerCase();
 //   console.log(sport)
@@ -34,5 +89,17 @@ console.log(typeof initialDeposit)
 //         break;
 //     }else{
 //         alert("Please enter a valid sport");
+//     }
+// }
+
+//   Приклад застосованої валідації - не пропускає взагалі нічого крім цифр
+// while(true){
+//     let input = prompt("What is your initial deposit?");
+    
+//     if(!input || !(/\D/.test(input)) && input >= 1000){
+//         initialDeposit = input;
+//         break;
+//     }else{
+//         alert("Invalid input data");
 //     }
 // }
