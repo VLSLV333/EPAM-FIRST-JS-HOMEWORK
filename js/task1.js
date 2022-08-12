@@ -1,28 +1,45 @@
-// Your code goes here
-
+// let initialDeposit;
+// do {
+//     let firstInput = prompt("What is your initial deposit?");
+// } while (condition);
+// && (/\D/.test(firstInput)) && firstInput != undefined
 let initialDeposit;
-while(true){
-    let input = prompt("What is your initial deposit?");
-    
-    if(false || input >= 1000){
-        initialDeposit = Number(input) ;
+let firstInput = prompt("What is your initial deposit?");
+// console.log(typeof firstInput)
+// console.log(firstInput < 1000)
+// console.log(firstInput)
+while((/\D/.test(firstInput)) || firstInput < 1000){
+    if(firstInput > 1000){
         break;
-    }else{
-        alert("Invalid input data");
     }
+    alert("Invalid input data");
+    firstInput = prompt("What is your initial deposit?")
 }
+initialDeposit = Number(firstInput);
 // console.log(initialDeposit, "initialDeposit")
 // console.log(typeof initialDeposit)
 let numberOfYears;
-while(true){
-    let input = prompt('For how many years do you invest your money?');
-    if(false || !(/\D/.test(input)) && input >= 1){
-        numberOfYears = Number(input);
-        break;
-    }else{
-        alert("Invalid input data");
+let secondInput = prompt('For how many years do you want to invest your money?');
+while(secondInput < 1){
+    if (!(/\D/.test(secondInput)) && secondInput != 0){
+        break
     }
+    alert("Invalid input data");
+    secondInput = prompt('For how many years do you want to invest your money?');
 }
+numberOfYears = Number(secondInput);
+console.log(numberOfYears, "numberOfYears")
+console.log(typeof numberOfYears)
+// let numberOfYears;
+// while(true){
+//     let input = prompt('For how many years do you invest your money?');
+//     if(false || !(/\D/.test(input)) && input >= 1){
+//         numberOfYears = Number(input);
+//         break;
+//     }else{
+//         alert("Invalid input data");
+//     }
+// }
 // console.log(numberOfYears, "numberOfYears")
 // console.log(typeof numberOfYears)
 let annualRate; 
@@ -39,9 +56,77 @@ while(true){
 // console.log(annualRate, "annualRate")
 // console.log(typeof annualRate)
 
+alert(`Initial amount: ${initialDeposit} USD
+Number of years: ${numberOfYears}
+Percentage of year: ${annualRate}%
+`);
+// for(let i = 1, profit = initialDeposit * (annualRate / 100), total = 0; i <= numberOfYears; i++){
+//         profit += total * (annualRate / 100);
+//         // console.log(profit, "profit")
+//         total = (initialDeposit + profit);
+//         // console.log(total, "total")
+//         alert(`${i} Year
+//         Total profit: ${profit}
+//         Total amount: ${total}`)
+//     }
+
+Number.prototype.round = function(n) {
+    const d = Math.pow(10, n);
+    return Math.round((this + Number.EPSILON) * d) / d;
+  }
+    for(let i = 1, profit = initialDeposit * (annualRate / 100), total = 0; i <= numberOfYears; i++){
+            profit += ((total) * (annualRate / 100)).round(2);
+            console.log(profit, "profit")
+            total = ((initialDeposit + profit)).round(2);
+            console.log(total, "total")
+            alert(`${i} Year
+            Total profit: ${profit}
+            Total amount: ${total}`)
+        }
+// function roundToTwo(num) {
+//         return +(Math.round(num + "e+2")  + "e-2");
+// }
+// for(let i = 1, profit = initialDeposit * (annualRate / 100), total = 0; i <= numberOfYears; i++){
+//         profit += roundToTwo((total) * (annualRate / 100));
+//         // console.log(profit, "profit")
+//         total = roundToTwo((initialDeposit + profit));
+//         // console.log(total, "total")
+//         alert(`${i} Year
+//         Total profit: ${profit}
+//         Total amount: ${total}`)
+// }
 
 
 
+    // for(let i = 1, profit = initialDeposit * (annualRate / 100), total = 0; i <= numberOfYears; i++){
+    //     profit += Math.round((total) * (annualRate / 100) * 100) / 100;
+    //     console.log(profit, "profit")
+    //     total = Math.round((initialDeposit + profit) * 100) / 100;
+    //     console.log(total, "total")
+    //     alert(`${i} Year
+    //     Total profit: ${profit}
+    //     Total amount: ${total}`)
+    // }
+
+//     (1.005).toFixed(2) == "1.01" || (function(prototype) {
+//         var toFixed = prototype.toFixed
+      
+//         prototype.toFixed = function(fractionDigits) {
+//           var split = this.toString().split('.')
+//           var number = +(!split[1] ? split[0] : split.join('.') + '1')
+      
+//           return toFixed.call(number, fractionDigits)
+//         }
+//       }(Number.prototype));
+// for(let i = 1, profit = initialDeposit * (annualRate / 100), total = 0; i <= numberOfYears; i++){
+//         profit += parseFloat(((total) * (annualRate / 100)).toFixed(2));
+//         console.log(profit, "profit")
+//         total = parseFloat((initialDeposit + profit).toFixed(2));
+//         console.log(total, "total")
+//         alert(`${i} Year
+//         Total profit: ${profit}
+//         Total amount: ${total}`)
+//     }
 
 
 
