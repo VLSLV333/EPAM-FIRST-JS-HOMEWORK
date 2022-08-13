@@ -75,7 +75,7 @@ annualRate = Number(thirdInput);
 
 alert(`Initial amount: ${initialDeposit} USD
 Number of years: ${numberOfYears}
-Percentage of year: ${annualRate}%
+Percentage per year: ${annualRate}%
 `);
 // for(let i = 1, profit = initialDeposit * (annualRate / 100), total = 0; i <= numberOfYears; i++){
 //         profit += total * (annualRate / 100);
