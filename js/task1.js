@@ -94,13 +94,13 @@ Percentage per year: ${annualRate}%
 let getPercentages = 100;
 let decimalPlaces = 2;
     for(let i = 1, profit = initialDeposit * (annualRate / getPercentages), total = 0; i <= numberOfYears; i++){
-            profit += (total * (annualRate / getPercentages));
+            profit += total * (annualRate / getPercentages);
             // console.log(profit, "profit")
-            total = ((initialDeposit + profit));
+            total = initialDeposit + profit;
             // console.log(total, "total")
             alert(`${i} Year
-            Total profit: ${profit.toFixed(2)}
-            Total amount: ${total.toFixed(2)}`)
+            Total profit: ${profit.toFixed(decimalPlaces)}
+            Total amount: ${total.toFixed(decimalPlaces)}`)
         }
 // function roundToTwo(num) {
 //         return +(Math.round(num + "e+2")  + "e-2");
