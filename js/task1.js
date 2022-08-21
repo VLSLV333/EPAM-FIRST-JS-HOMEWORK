@@ -86,21 +86,21 @@ Percentage per year: ${annualRate}%
 //         Total profit: ${profit}
 //         Total amount: ${total}`)
 //     }
-Number.prototype.round = function(n) {
-    let powerForFormula = 10;
-    const d = Math.pow(powerForFormula, n);
-    return Math.round((this + Number.EPSILON) * d) / d;
-  }
+// Number.prototype.round = function(n) {
+//     let powerForFormula = 10;
+//     const d = Math.pow(powerForFormula, n);
+//     return Math.round((this + Number.EPSILON) * d) / d;
+//   }
 let getPercentages = 100;
 let decimalPlaces = 2;
     for(let i = 1, profit = initialDeposit * (annualRate / getPercentages), total = 0; i <= numberOfYears; i++){
-            profit += (total * (annualRate / getPercentages)).round(decimalPlaces);
+            profit += (total * (annualRate / getPercentages));
             // console.log(profit, "profit")
-            total = ((initialDeposit + profit)).round(decimalPlaces);
+            total = ((initialDeposit + profit));
             // console.log(total, "total")
             alert(`${i} Year
-            Total profit: ${profit}
-            Total amount: ${total}`)
+            Total profit: ${profit.toFixed(2)}
+            Total amount: ${total.toFixed(2)}`)
         }
 // function roundToTwo(num) {
 //         return +(Math.round(num + "e+2")  + "e-2");
@@ -138,8 +138,11 @@ let decimalPlaces = 2;
 //         }
 //       }(Number.prototype));
 // for(let i = 1, profit = initialDeposit * (annualRate / 100), total = 0; i <= numberOfYears; i++){
-//         profit += parseFloat(((total) * (annualRate / 100)).toFixed(2));
-//         console.log(profit, "profit")
+//         profit += Number.parseFloat(((total) * (annualRate / 100))).toFixed(2);
+//         console.log(typeof profit, profit)
+//         // console.log(profit, "profit", typeof profit)
+//         profit = +profit
+//         console.log(typeof profit, profit)
 //         total = parseFloat((initialDeposit + profit).toFixed(2));
 //         console.log(total, "total")
 //         alert(`${i} Year
